@@ -1,4 +1,7 @@
 require('dotenv').config()
+// bringing in cors from outside library CORS SHOULD BE FIRST
+const cors = require('cors')
+//bringing in express from outside library
 const express = require('express');
 // create an app
 const app = express()
@@ -12,6 +15,7 @@ const logger = require('./logger')
 // our routes go here
 
 //middleware goes first ALWAYS!
+apps.use(cors())
 app.use(express.json())
 app.use(logger)
 
